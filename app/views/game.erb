@@ -1,4 +1,7 @@
 <body>
+  <h1>Let the games begin...</h1>
+  <p>Press the spacebar to start the game.</p>
+  <p>Press 'r' to restart.</p>
 <table class="racer_table">
   <tr id="player_1">
     <td class="active"></td>
@@ -26,10 +29,17 @@
     <td></td>
   </tr>
 </table>
+<p id='win_time'></p>
 </body>
 
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src='/js/game.js'></script>
+<script src='/js/player.js'></script>
+<script src="/js/application.js"></script>
+
 <script>
-var game_id = <%= @game %>;
-var player1_id = <%= @player1 %>;
-var player2_id = <%= @player2 %>;
+
+  var player1 = new Player('<%= @player1.name %>');
+  var player2 = new Player('<%= @player2.name %>');
+  var game = new Game(player1, player2);
 </script>

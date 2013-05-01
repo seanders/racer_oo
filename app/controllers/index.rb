@@ -18,16 +18,18 @@ post '/game' do
 end
  
 get '/game' do
-  @player1 = session[:first_player]
-  @player2 = session[:second_player]
+  @player1 = Player.find(session[:first_player])
+  @player2 = Player.find(session[:second_player])
   @game = session[:current_game]
   erb :game
 end
 
 put '/update' do
-@current_game = current_game
-@current_game.winner = params["winner"].to_i
-@current_game.save
+  @current_game = current_game
+  @current_game.winner = params["winner"]
+  @current_game.winning_time = params["winning_time"].to_f.round(2)
+  puts @current_game.winning_time
+  @current_game.save
 end
 
 get '/new_game' do
