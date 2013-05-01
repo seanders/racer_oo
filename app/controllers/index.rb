@@ -33,12 +33,12 @@ put '/update' do
 end
 
 get '/new_game' do
-  @player1 = session[:first_player]
-  @player2 = session[:second_player]
+  @player1 = Player.find(session[:first_player])
+  @player2 = Player.find(session[:second_player])
   @game = Game.create()
   session[:current_game] = @game.id
-  @game.players << Player.find(session[:first_player])
-  @game.players << Player.find(session[:second_player])
+  @game.players << @player1
+  @game.players << @player2
   @game = session[:current_game]
   erb :game
 end

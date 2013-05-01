@@ -5,6 +5,7 @@ $(document).ready(function(){
   $(document).on('keyup', function(event){
     
     game.onKeyUp(event.which);
+    
     if (!game.gameFinished && game.isThereAWinner()) {
       game.finish();
     }

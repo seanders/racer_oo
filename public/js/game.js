@@ -8,7 +8,7 @@ function Game(player1, player2){
   this.gameFinished = false;
   this.boardSize = $('#player_1').children().size();
   this.winTime = null;
-};
+}
 
 Game.prototype = {
   onKeyUp: function(code) {
@@ -69,8 +69,8 @@ Game.prototype = {
     $('#win_time').html('');
     this.player1.position = 1;
     this.player2.position = 1;
+    $.get('/new_game');
     this.render();
-    // $(document).bind('keyup');
   },
 
   render: function (){
