@@ -46,7 +46,7 @@ Game.prototype = {
     else {
       this.winner = this.player2.name;
     }
-    $('#win_time').html('You won in ' + this.winTime);
+    $('#win_time').html(this.winner + ' won in ' + (Math.floor(this.winTime * 100) / 100) + ' seconds.');
     $.ajax({
         url: '/update',
         type: 'PUT',

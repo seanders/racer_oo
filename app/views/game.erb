@@ -1,5 +1,6 @@
 <body>
   <h1>Let the games begin...</h1>
+  <p><a href='/'>Click here to change players</a></p>
   <p>Press the spacebar to start the game.</p>
   <p>Press 'r' to restart.</p>
 <table class="racer_table">
@@ -29,6 +30,8 @@
     <td></td>
   </tr>
 </table>
+<p>Player 1: <%= @player1.name %></p>
+<p>Player 2: <%= @player2.name %></p>
 <p id='win_time'></p>
 </body>
 
